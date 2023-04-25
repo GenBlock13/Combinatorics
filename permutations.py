@@ -41,20 +41,24 @@ def permute_by_index(items, length, index):
 
 def index_by_permutation(items, length, substring):
     permutation = permute_with_repeat(items, length)
+    if len(substring) == length:
+        return permutation.index(substring)
+    else:
+        return "Substring is not equal to the string"
 
-    return permutation.index(substring)
 
-
-n = permutation_repeat(2, 1)
+n = permutation_repeat(3, 1)
 print(n)
 
 items = ['pig', 'dog', 'cat']
-length = 2
-index = 5
-substring = ('dog', 'cat')
+length = 3
+index = 16
+substring = ('dog', 'cat', 'dog')
 
 permutations = permute_with_repeat(items, length)
-print(permutations)
+
+print(*permutations, sep='\n')
+
 
 answer = permute_by_index(items, length, index)
 print(answer)
